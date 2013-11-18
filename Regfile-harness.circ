@@ -14,7 +14,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="radix" val="16"/>
     </tool>
     <tool name="Tunnel">
-      <a name="facing" val="east"/>
+      <a name="facing" val="north"/>
       <a name="width" val="16"/>
     </tool>
     <tool name="Clock">
@@ -26,9 +26,16 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </tool>
   </lib>
   <lib desc="#Gates" name="1"/>
-  <lib desc="#Plexers" name="2"/>
+  <lib desc="#Plexers" name="2">
+    <tool name="Multiplexer">
+      <a name="facing" val="north"/>
+    </tool>
+  </lib>
   <lib desc="#Arithmetic" name="3"/>
   <lib desc="#Memory" name="4">
+    <tool name="Register">
+      <a name="width" val="16"/>
+    </tool>
     <tool name="ROM">
       <a name="contents">addr/data: 8 8
 0
@@ -127,53 +134,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(550,270)" to="(570,270)"/>
     <wire from="(310,260)" to="(510,260)"/>
     <wire from="(90,260)" to="(110,260)"/>
-    <comp lib="0" loc="(570,220)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="16"/>
-      <a name="label" val="Read Data 1"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(520,80)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="width" val="16"/>
-      <a name="label" val="Reg 2 Value"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="0" loc="(340,80)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="width" val="16"/>
-      <a name="label" val="Reg 0 Value"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="0" loc="(450,360)" name="Clock">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp lib="4" loc="(250,260)" name="ROM">
-      <a name="dataWidth" val="23"/>
-      <a name="contents">addr/data: 8 23
-0
-</a>
-    </comp>
-    <comp lib="0" loc="(180,80)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="width" val="8"/>
-      <a name="label" val="test #"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="3" loc="(140,180)" name="Adder"/>
-    <comp lib="0" loc="(30,270)" name="Constant"/>
-    <comp lib="0" loc="(430,80)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="width" val="16"/>
-      <a name="label" val="Reg 1 Value"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="7" loc="(540,220)" name="main"/>
     <comp lib="0" loc="(280,260)" name="Splitter">
       <a name="fanout" val="5"/>
       <a name="incoming" val="23"/>
@@ -200,6 +160,52 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="bit21" val="3"/>
       <a name="bit22" val="4"/>
     </comp>
+    <comp lib="4" loc="(70,260)" name="Register"/>
+    <comp lib="0" loc="(30,270)" name="Constant"/>
+    <comp lib="4" loc="(250,260)" name="ROM">
+      <a name="dataWidth" val="23"/>
+      <a name="contents">addr/data: 8 23
+0
+</a>
+    </comp>
+    <comp lib="0" loc="(450,360)" name="Clock">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="6" loc="(387,435)" name="Text">
+      <a name="text" val="There should be no blue/red wires here, and the result shouldn't be x's."/>
+    </comp>
+    <comp lib="3" loc="(140,180)" name="Adder"/>
+    <comp lib="0" loc="(90,170)" name="Constant">
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(430,80)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="16"/>
+      <a name="label" val="Reg 1 Value"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(340,80)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="16"/>
+      <a name="label" val="Reg 0 Value"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(180,80)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="label" val="test #"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(520,80)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="16"/>
+      <a name="label" val="Reg 2 Value"/>
+      <a name="labelloc" val="north"/>
+    </comp>
     <comp lib="0" loc="(570,270)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -207,16 +213,17 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="Read Data 2"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="6" loc="(387,435)" name="Text">
-      <a name="text" val="There should be no blue/red wires here, and the result shouldn't be x's."/>
-    </comp>
-    <comp lib="0" loc="(90,170)" name="Constant">
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="4" loc="(70,260)" name="Register"/>
     <comp lib="0" loc="(160,310)" name="Constant">
       <a name="facing" val="north"/>
     </comp>
+    <comp lib="0" loc="(570,220)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="16"/>
+      <a name="label" val="Read Data 1"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="7" loc="(540,220)" name="main"/>
     <comp lib="6" loc="(516,311)" name="Text">
       <a name="text" val="YOUR REGFILE SHOULD BE FITTING HERE!"/>
     </comp>
